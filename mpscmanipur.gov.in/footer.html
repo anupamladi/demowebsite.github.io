@@ -1,0 +1,40 @@
+<!-- footer.html -->
+<footer class="footer bg-light py-3">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Left-aligned content -->
+            <div class="col-sm-6 text-left">
+                <p>
+                    © Manipur Public Service Commission |
+                    <a href="disclaimer.html">Disclaimer</a>
+                </p>
+                <p>
+                    Last Updated: <strong id="lastUpdated">19-08-2025</strong>
+                </p>
+            </div>
+
+            <!-- Right-aligned content -->
+            <div class="col-sm-6 text-right">
+                <div style="display: inline-block; position: relative;">
+                    <span>Visitor No.</span><br/>
+                    <img id="counterImg" src="http://hitwebcounter.com/counter/counter.php?page=7054859&style=0006&nbdigits=7&type=page&initCount=0" alt="Visitor Counter" style="pointer-events: none;" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto-update "Last Updated" date
+    document.addEventListener("DOMContentLoaded", function() {
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        const today = new Date().toLocaleDateString('en-GB', options);
+        document.getElementById("lastUpdated").textContent = today;
+    });
+</script>
