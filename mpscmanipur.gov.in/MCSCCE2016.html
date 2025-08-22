@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MPSC - Manipur Public Service Commission</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="MPSC, Manipur, Imphal, Manipur Civil Services Combined Competitive, Civil Services" />
+		<meta name="_globalsign-domain-verification" content="ArFx_UKkTcgDo_uxdQcISY7Gmi0l9g5ZKaZ4CfmDn9" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<link rel="shortcut icon" href="favico.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="includes/css/common.css" />
+		<link rel="stylesheet" href="https://mpscmanipur.gov.in/style.css?v=1.2">
+		<script src="https://mpscmanipur.gov.in/main.js?v=5.4"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<style>/* ====== BASE ====== */
+			body {
+			  font-family: Arial, Helvetica, sans-serif;
+			  font-size: 16px;
+			}
+
+			.word-wrap {
+			  word-wrap: break-word;
+			  white-space: normal;
+			}
+
+			/* ====== HEADER LOGO ====== */
+			.logo img {
+			  max-width: 100%;
+			  height: auto;
+			}
+
+			/* ====== NAVBAR ====== */
+			.navbar-nav > li > a {
+			  font-size: 18px;
+			  font-weight: 500;
+			}
+
+			.navbar-nav .dropdown-menu > li > a {
+			  font-size: 16px;
+			}
+
+			/* ====== TABLE STYLING ====== */
+			table#myTable th:first-child,
+			table#myTable td:first-child {
+			  text-align: center;
+			}
+
+			table#myTable th:nth-child(3),
+			table#myTable td:nth-child(3),
+			table#myTable th:nth-child(4),
+			table#myTable td:nth-child(4) {
+			  text-align: center;
+			}
+
+			tbody {
+			  counter-reset: rowNumber;
+			}
+
+			tbody tr {
+			  counter-increment: rowNumber;
+			}
+
+			tbody tr td:first-child::before {
+			  content: counter(rowNumber);
+			  min-width: 1em;
+			  margin-right: 0.5em;
+			}
+
+			/* ====== FOOTER ====== */
+			.footer {
+			  background-color: #ffffff;
+			  padding: 15px 0;
+			  border-top: 1px solid #ccc;
+			  margin-top: 30px;
+			}
+
+			/* ====== RESPONSIVE ====== */
+			@media (max-width: 767px) {
+			  .header-logo, .header-contact {
+				text-align: center;
+				justify-content: center !important;
+				flex-direction: column;
+			  }
+
+			  .header-contact {
+				margin-top: 15px;
+			  }
+
+			  .header-contact a {
+				display: block;
+				margin-top: 5px;
+			  }
+
+			  .commission-box img {
+				width: 100px;
+				height: 120px;
+				object-fit: contain;
+			  }
+			}
+			/*====== syllbus doownload link =======*/
+			  #syllabusDownloadLink a#downloadLink {
+				color: white !important;
+				}
+
+			#syllabusDownloadLink a#downloadLink .fa {
+			color: white !important;
+			}
+
+			/* ====== SUBMENU STRIP ====== */
+			.submenu-strip {
+			padding: 10px 0;
+			width: 100%;
+			border: none;
+			margin: 0;
+			background: none;
+			}
+
+			.submenu-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 10px;
+			padding: 10px;
+			}
+
+			.submenu-link {
+			color: #fff;
+			text-decoration: none;
+			padding: 10px 15px;
+			font-size: 15px;
+			font-weight: 500;
+			text-align: center;
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 120px;
+			white-space: normal;
+			word-wrap: break-word;
+			}
+
+			.submenu-link:hover,
+			.submenu-link.active-link {
+			color: black !important;
+			font-weight: bold;
+			opacity: 0.85;
+			text-decoration: none;
+			}
+
+
+			/* Submenu background colors */
+			.link1 { background-color: #4CAF50; }   /* Green */
+			.link2 { background-color: #2196F3; }   /* Blue */
+			.link3 { background-color: #FF9800; }   /* Orange */
+			.link4 { background-color: #9C27B0; }   /* Purple */
+			.link5 { background-color: #F44336; }   /* Red */
+			.link6 { background-color: #3F51B5; }   /* Indigo */
+			.link7 { background-color: #009688; }   /* Teal */
+			.link8 { background-color: #795548; }   /* Brown */
+		</style>
+	</head>
+	<body>
+		
+			<!-- Header -->
+				<div id="header-placeholder"></div>
+				<script>
+  					fetch('header.html')
+    				.then(response => response.text())
+    				.then(data => {
+      				document.getElementById('header-placeholder').innerHTML = data;
+    				})
+    				.catch(error => console.error('Header load error:', error));
+				</script>
+			<!-- MCSCCC 2022 -->
+			<div class="container">
+				<div class="text-center">
+					<h2 style="color: #B22222; font-weight: bold;">Manipur Civil Services Combined Competive Examination, 2016</h2></br>
+				</div>
+				<input class="form-control" id="myInput" type="text" placeholder="Search...." style="margin-bottom: 10px; max-width: 300px;">
+				<table class="table table-bordered table-striped" id="myTable" style="width:100%">
+					<thead style="background-color: #337ab7; color: white;">
+						<tr>
+							<th width="7%" >Sl. No.</th>
+							<th width="50%" >Particular</th>
+							<th width="12%">Download document</th>
+							<th width="12%">Date of upload</th>
+						</tr>
+					</thead>
+					<tbody  style="font-size:18px;">
+						<tr>
+							<td></td>
+							<td>Advertisement No. 1 of 2016</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC%202016%20Advt.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td >08-04-2016</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Corrigendum</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCCCornotif2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td >11-04-2016</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Extension of Last Date for submission of submission of applicaiton for Preliminary Examination</td>
+							<td><a href="files/2016/MCSCCE_2016/extsionofonlinesubmcscc.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td >29-04-2016</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Main Exam Schedule</td>
+							<td><a href="files/2016/MCSCCE_2016/Schdule%20datefor%20MCSCCmain2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td >16-04-2016</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Extension of Last Date upto 09-05-2016</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC(P)%202016%20Extn%20of%20Last%20Date%20%5Blatest%5D.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td >08-05-2016</td>
+						</tr>
+						<tr>
+							<td ></td>
+							<td colspan="3">Extension of Last Date upto 12-05-2016</td>
+							
+							</tr>
+						<tr>
+							<td></td>
+							<td>i) Notification</td>
+							<td><a href="files/2016/MCSCCE_2016/3rdtimeextensionofmcsccprelim2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+							<td rowspan="3">11-05-2016</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Annexure-I</td>
+							<td><a href="files/2016/MCSCCE_2016/annexureIextenmcscc2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Annexure-II</td>
+							<td><a href="files/2016/MCSCCE_2016/annexureIImcsccexte3rd2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>Notification to cancel the Prelim Exam held on 15-05-2016 and to conduct afresh again on 03-07-2016</td>
+							<td><a href="files/2016/MCSCCE_2016/mcscc(prelim)%202016afresh.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>03-06-2016</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Answer Key for Preliminary Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/AnswerkeysforMCSCC(Prelim)%20Examination%202016%203%20July.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>03-07-2016</td>
+						</tr>    
+						<tr>
+							<td></td>
+							<td>Final Answer Key for Preliminary Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/Anserkeyfinal%20notification%20MCSCC(Prelim2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>08-07-2016</td>
+						</tr>   
+						<tr>
+							<td></td>
+							<td>Result of Preliminary Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/Resultnomcscc(prelim)%202016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>08-07-2016</td>
+						</tr>   
+						<tr>
+							<td></td>
+							<td>Cut off makrs for Preliminary Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/resultmcscc(prelim)2016addendum.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>11-07-2016</td>
+						</tr>  
+						<tr>
+							<td></td>
+							<td>Notificaiton for Submission of applicaiton form for Main Examination</td>
+							<td><a href="files/2016/MCSCCE_2016/mcscc(main)%20formonline.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>13-07-2016</td>
+						</tr>    
+						<tr>
+							<td></td>
+							<td>Press Note for Preliminary Exam Cut off Marks</td>
+							<td><a href="files/2016/MCSCCE_2016/Press%20Note%20Cut%20Off%20Marsk%20MCSCC(Prelim2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>18-07-2016</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Extension of last date for submission of form for Main Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/Extension%20of%20online%20formsubmissmcsccMain%202016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>27-07-2016</td>
+						</tr>    
+						<tr>
+							<td></td>
+							<td>Main Exam Time Table</td>
+							<td><a href="files/2016/MCSCCE_2016/timetablemcscc2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>08-08-2016</td>
+						</tr>  
+						<tr>
+							<td></td>
+							<td>Reschduled date for GS Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC%20GS%20RESHEDULED.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>17-08-2016</td>
+						</tr>      
+						<tr>
+							<td></td>
+							<td>Exam Venue for Main Exam</td>
+							<td><a href="files/2016/MCSCCE_2016/venuemcscc2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>29-08-2016</td>
+						</tr>        
+						<tr>
+							<td></td>
+							<td>Main Exam Written Result</td>
+							<td><a href="files/2016/MCSCCE_2016/result%20main%20exam2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>04-10-2016</td>
+						</tr>       
+						<tr>
+							<td></td>
+							<td>Final Result</td>
+							<td><a href="files/2016/MCSCCE_2016/mcsresult2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>21-12-2016</td>
+						</tr>      
+						<tr>
+							<td></td>
+							<td>Notification for Marks of Main Examination.</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC_Marks_Scored_Notification.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>25-04-2017</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>Notice regarding holding of Manipur Civil Services Combined Competitive (Main) Examination, 2016 afresh</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC_Main_2016_afresh.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>14-08-2020</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>PRESS RELEASE regarding conduct of Manipur Civil Service Combined Competitive (Main) Examination, 2016 afresh </td>
+							<td><a href="files/2016/MCSCCE_2016/Press_Release.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>26-08-2020</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Notification for submission of online application form for Main Examination to be held afresh </td>
+							<td><a href="files/2016/MCSCCE_2016/Notification_Form_Submission_Main_afresh.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>27-08-2020</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>Circular for MCSCC (Main) Exam, 2016 to be held afresh  </td>
+							<td><a href="files/2016/MCSCCE_2016/Cirular_MCSCC(M)_Exam_2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>07-03-2022</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Speaking order for not allowing change of optional papers in the MCSCC (Main) Exam, 2016 to be held afresh  </td>
+							<td><a href="files/2016/MCSCCE_2016/Order_MCSCCE2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>16-03-2022</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Notification to update details in the application already submitted for MCSCCE (M) Exam, 2016 to be reconducted tentatively in May 2022 </td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCCE2016_Update.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>24-03-2022</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>List of 1069 candidates eligible to appear in MCSCC (Main) Exam, 2016 to be re-conducted tentatively in May 2022 </td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCCE2016_reconduct_eligible_Signed.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>24-03-2022</td>
+						</tr> 		
+						<tr>
+							<td></td>
+							<td>Reminder Notification to update details for MCSCCE (M) Exam, 2016</td>
+							<td><a href="files/2016/MCSCCE_2016/Notification_MCSCC_2016_4_4_22.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>04-04-2022</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Exam Schedule</td>
+							<td><a href="files/2016/MCSCCE_2016/SchedulE_%20MSCSSE_2016.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>22-04-2022</td>
+						</tr> 	
+						<tr>
+							<td></td>
+							<td>Exam Venue</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCCE_2016_(2022)_Venue.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>09-05-2022</td>
+						</tr>	
+						<tr>
+							<td></td>
+							<td>Notification for re opening of link for updation of details</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC_M_2016_Link_reopen_notification.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>18-05-2022</td>
+						</tr> 	
+						<tr>
+							<Td></Td>
+							<td>Examination venue for 17 candidates who updated their details in compliance of High Court's Order</td>
+							<td><a href="files/2016/MCSCCE_2016/Venue_for_17_candidates.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>23-05-2022</td>
+						</tr> 		
+						<tr>
+							<td></td>
+							<td>Writte Result for MCSCC (M) Exam, 2016 (2022)</td>
+							<td><a href="files/2016/MCSCCE_2016/Main_Written_Result.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>27-09-2022</td>
+						</tr>				
+						<tr>
+							<Td></Td>
+							<td>Interview Schedule for MCSCC (M) Exam, 2016 (2022)</td>
+							<td><a href="files/2016/MCSCCE_2016/PT_Notice.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>27-09-2022</td>
+						</tr> 				
+						<tr>
+							<Td></Td>
+							<td>Final Result for MCSCC (M) Exam, 2016 (2022)</td>
+							<td><a href="files/2016/MCSCCE_2016/Final_Result_MCSCC_2016_2022.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>22-11-2022</td>
+						</tr> 				
+						<tr>
+							<td></td>
+							<td>Main Exam Cut-off Marks</td>
+							<td><a href="files/2016/MCSCCE_2016/MCSCC_2016(2022)_Mains_Cutoff.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+							<td>07-02-2023</td>
+						</tr> 
+					</tbody>
+				</table>
+				<script>
+					$(document).ready(function(){
+					$("#myInput").on("keyup", function() {
+						var value = $(this).val().toLowerCase();
+						$("#myTable tr").filter(function() {
+						$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+						});
+					});
+					});
+				</script>
+				<h2>Important Documents</h2>
+				<table class="table table-bordered table-striped" id="myTable" style="width:50%">
+					<thead style="background-color: #337ab7; color: white;"></thead>
+						<tr>
+							<th>Sl. No.</th>
+							<th>Particular</th>
+							<th>Download</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td>MCSCCE (4th Amendment) Rules, 2016</td>
+							<td><a href="files/2016/MCSCCE_2016/amendmentmcsccrules2010.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+						</tr>
+						<tr>
+							<td></td>
+							<td>Plan/ Scheme of Examination & Syllabus</td>
+							<td><a href="Scheme&amp;syllabus_MCSCCE.html"><img src="images/click.png" width="116" height="40" alt="" /></a></td> 
+						</tr>
+					</tbody>
+				</table>
+			</ul>
+               
+   
+	
+
+   		</div>
+    </div>
+  
+   <div class="clr"></div>
+   <!-- footer -->
+			<div id="footer-placeholder"></div>
+			<script>
+			  fetch('footer.html')
+				.then(response => response.text())
+				.then(data => {
+				  document.getElementById('footer-placeholder').innerHTML = data;
+				})
+				.catch(error => console.error('Footer load error:', error));
+			</script>
+</body>
+</html>

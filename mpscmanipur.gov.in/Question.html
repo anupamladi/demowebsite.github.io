@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MPSC - Manipur Public Service Commission</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="MPSC, Manipur, Imphal, Manipur Civil Services Combined Competitive, Civil Services" />
+		<meta name="_globalsign-domain-verification" content="ArFx_UKkTcgDo_uxdQcISY7Gmi0l9g5ZKaZ4CfmDn9" />
+		<link rel="shortcut icon" href="favico.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="includes/css/common.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  
+		<style>/* General Layout */
+			  body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+			  }
+
+			  .word-wrap {
+				overflow-wrap: break-word;
+				white-space: normal;
+			  }
+
+			  /* Table Styles */
+			  table thead th {
+				font-weight: bold;
+				background-color: #337ab7;
+				color: white;
+			  }
+
+			  /* Navbar Styles */
+			  .navbar-nav > li > a {
+				font-size: 18px;
+				font-weight: 500;
+			  }
+
+			  .navbar-nav .dropdown-menu > li > a {
+				font-size: 16px;
+			  }
+
+			  /* Responsive Header Adjustments */
+			  @media (max-width: 767px) {
+				.header-contact {
+				  text-align: center;
+				  margin-top: 15px;
+				}
+
+				.header-contact a {
+				  display: block;
+				  margin-top: 5px;
+				}
+			  }
+
+			  /* ====== SUBMENU STRIP ====== */
+			  .submenu-strip {
+				background: none;
+				padding: 10px 0;
+				width: 100%;
+				border: none;
+				margin: 0;
+			  }
+
+			  .submenu-container {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 10px;
+				padding: 10px;
+			  }
+
+			  .submenu-link {
+				color: #fff;
+				text-decoration: none;
+				padding: 10px 15px;
+				font-size: 15px;
+				font-weight: 500;
+				text-align: center;
+				flex-grow: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-width: 120px;
+				white-space: normal;
+				word-wrap: break-word;
+			  }
+
+			  .submenu-link:hover,
+			  .submenu-link.active-link {
+				color: black !important;
+				font-weight: bold;
+				opacity: 0.85;
+				text-decoration: none;
+			  }
+
+			  /* Individual link background colors */
+			  .link1 { background-color: #4CAF50; }
+			  .link2 { background-color: #2196F3; }
+			  .link3 { background-color: #FF9800; }
+			  .link4 { background-color: #9C27B0; }
+			  .link5 { background-color: #F44336; }
+			  .link6 { background-color: #3F51B5; }
+			  .link7 { background-color: #009688; }
+			  .link8 { background-color: #795548; }
+
+			  /* Footer */
+			  .footer {
+				background-color: #ffffff;
+				padding: 15px 0;
+				border-top: 1px solid #ccc;
+				margin-top: 30px;
+			  }
+
+			  .no-data {
+				text-align: center;
+				font-weight: bold;
+				color: red;
+				margin-top: 20px;
+			  }
+			  
+			  #examSelect {
+				  width: 100%;       /* Stretch to fill container width */
+				  max-width: 900px;  /* Optional: limit max width */
+				  font-size: 18px;   /* Slightly bigger font */
+				  padding: 8px 12px; /* Add some padding for height */
+				  box-sizing: border-box; /* Include padding in width */
+				}
+
+				#groupSelect {
+				  width: 100%;       /* Stretch to fill container width */
+				  max-width: 900px;  /* Optional: limit max width */
+				  font-size: 18px;   /* Slightly bigger font */
+				  padding: 8px 12px; /* Add some padding for height */
+				  box-sizing: border-box; /* Include padding in width */
+				}
+    .container {
+      margin-top: 80px;
+      max-width: 900px;
+    }
+		</style>
+
+		</head>
+		<body>
+		<div class="container-fluid">
+			<!-- Header -->
+			<div id="header-placeholder"></div>
+				<script>
+					fetch('header.html')
+						.then(response => response.text())
+						.then(data => {
+						document.getElementById('header-placeholder').innerHTML = data;
+						})
+						.catch(error => console.error('Header load error:', error));
+				</script>			<!-- Active Examination Section -->
+			<div class="container">
+				<h2 class="text-center">Previous Year Question Papers</h2><br/>
+
+				<div class="mb-4">
+					<label for="groupSelect" class="form-label">Select Exam Group</label>
+					<select class="form-select exam-dropdown" id="groupSelect">
+						<option value="" selected disabled>-- Choose a group --</option>
+					</select>
+				</div><br/>
+				<div class="mb-4">
+					<label for="examSelect" class="form-label">Select Exam</label>
+					<select class="form-select exam-dropdown" id="examSelect" disabled>
+						<option value="" selected disabled>-- Choose an exam --</option>
+					</select>
+				</div><br/>
+			
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+						const groupSelect = document.getElementById("groupSelect");
+						const examSelect = document.getElementById("examSelect");
+						const originalSelect = document.createElement("select"); // dummy element to parse groups
+
+						// Add your existing option list here (copied from original <select>)
+						originalSelect.innerHTML = `
+						<optgroup label="Assistant Engineer and Section Officer Examination">
+							<option value="AE_2013">Assistant Engineer Exam, 2013</option>
+							<option value="SO_2014">Section Officer Exam, 2014</option>
+						</optgroup>
+						
+						<optgroup label="Dental Surgeon Examination">
+							<option value="DS_2010">MHS Grade-IV (Dental Surgeon) Examination, 2010</option>
+							<option value="DS_2017">MHS Grade-IV (Dental Surgeon) Examination, 2017</option>
+						</optgroup>						
+						
+						<optgroup label="Limited Departmental Examination">
+							<option value="LDE_2022">LDE Examinaiton, 2022</option>
+						</optgroup>
+						
+						<optgroup label="Manipur Civil Services Combined Competitive Examination">
+							<option value="MCSP_2010">MCSCC (Preliminary) Examinaiton, 2010</option>
+							<option value="MCSM_2010">MCSCC (Main) Examinaiton, 2010</option>
+							<option value="MCSP_2013">MCSCC (Preliminary) Exam, 2013</option>
+							<option value="MCSM_2013">MCSCC (Main) Exam, 2013</option>
+							<option value="MCSP_2014">MCSCC(Preliminary) Exam, 2014</option>
+							<option value="MCSP_2016">MCSCC(Preliminary) Exam, 2016</option>
+							<option value="MCSM_2016">MCSCC(Main) Exam, 2016</option>
+						</optgroup>						
+						
+						<optgroup label="Manipur Education Service Examination">
+							<option value="MESP_2014">MES (Preliminary) Examinaiton, 2014</option>
+						</optgroup>						
+						
+						<optgroup label="Medical Officer Examination">
+							<option value="MO_2006">MHS Grade-IV (Medical Officer) Examination, 2006</option>
+							<option value="MO_2010">MHS Grade-IV (Medical Officer) Examination, 2010</option>
+							<option value="MOI_2014">MHS Grade-IV (Medical Officer) Examination (I), 2014</option>
+							<option value="MOII_2014">MHS Grade-IV (Medical Officer) Examinaiton (II), 2014</option>
+							<option value="MO_2017">MHS Grade-IV (Medical Officer) Examination, 2017</option>
+							<option value="MO_2018">MHS Grade-IV (Medical Officer) Examination, 2018</option>
+						</optgroup>	
+
+						<optgroup label="MPSC Staff Recruitment Examination">
+							<option value="OAP_2016">MPSC OA(Preliminary) Examination, 2016</option>
+							<option value="OAM_2016">MPSC OA(Main) Examination, 2016</option>
+							<option value="OSD_2017">MPSC OSD (Law) Examination, 2017</option>
+						</optgroup>						
+						
+						<optgroup label="Others">
+							<option value="Arch_2017">Assistant Architect in PWD Exam, 2017</option>
+							<option value="AAO_2014">Assistant Agriculture Officer Examination, 2014</option>
+							<option value="ADES_2017">Assistant Director Eco & Stats Exam, 2017</option>
+							<option value="AGA_2018">Asst. Govt. Advocate cum Assistant Public Prosecutor Examination, 2018</option>
+							<option value="DIOAPO_2017">District Information Officer and Assistant Publicity Officer Exam, 2017</option>
+							<option value="EOAEO_2014">Executive Officer and Asst. Executive Officer in MAHUD Examination, 2014</option>
+							<option value="FSO_2014">Food Safety Officer Examination, 2014</option>
+							<option value="IT_2014">Inspector of Taxes Examination, 2014</option>
+							<option value="PRO_2017">Public Relation Officer Exam, 2017</option>
+						</optgroup>				
+						`;
+
+						// Populate first combo box with optgroup labels
+						const groups = Array.from(originalSelect.querySelectorAll("optgroup"));
+						groups.forEach(group => {
+						const option = document.createElement("option");
+						option.value = group.label;
+						option.textContent = group.label;
+						groupSelect.appendChild(option);
+						});
+
+						// On group select change
+						groupSelect.addEventListener("change", function () {
+						const selectedLabel = this.value;
+						examSelect.innerHTML = `<option value="" disabled selected>-- Choose an exam --</option>`;
+						const group = groups.find(g => g.label === selectedLabel);
+
+						if (group) {
+							Array.from(group.querySelectorAll("option")).forEach(opt => {
+							const option = document.createElement("option");
+							option.value = opt.value;
+							option.textContent = opt.textContent;
+							examSelect.appendChild(option);
+							});
+							examSelect.disabled = false;
+						} else {
+							examSelect.disabled = true;
+						}
+
+						renderTable([], false); // Clear table
+						});
+
+						// On exam selection
+						examSelect.addEventListener("change", function () {
+						const selected = this.value;
+						const papers = questionPapers[selected] || [];
+						const useTwoCols = papers.length > 5;
+						renderTable(papers, useTwoCols);
+						});
+
+						// Initial render
+						renderTable([], false);
+					});
+				</script>
+
+
+				<div id="tableWrapper" style="display: none;">
+					<div id="tableContainer"></div>
+				</div>
+
+			</div>
+				<script>
+					const questionPapers = {
+						MO_2006: [
+						{ name: "Paper-I & II", url: "files/medicalpaper-I_II2006.pdf" },
+						],
+						MCSP_2010: [
+							{ name: "General Studies", url: "files/2010/MCSCCE_2010/General%20Studies%20Prelim.pdf" },
+						],
+						MCSM_2010: [
+							{ name: "General English", url: "files/2010/MCSCCE_2010/General%20English.pdf" },
+							{ name: "Essay", url: "files/2010/MCSCCE_2010/Essay.pdf" },
+							{ name: "General Studies Paper-I", url: "files/2010/MCSCCE_2010/General%20Studies-I.pdf" },
+							{ name: "General Studies Paper-II", url: "files/2010/MCSCCE_2010/General%20Studies-II.pdf" },
+							{ name: "Agriculture Paper-I", url: "files/2010/MCSCCE_2010/Agriculture-I.pdf" },
+							{ name: "Agriculture Paper-II", url: "files/2010/MCSCCE_2010/Agriculture-II.pdf" },
+							{ name: "Anthropology Paper-I", url: "files/2010/MCSCCE_2010/Anthropology-I.pdf" },
+							{ name: "Anthropology Paper-II", url: "files/2010/MCSCCE_2010/Anthropology-II.pdf" },
+							{ name: "Animal Husbandry & Vety. Sc. Paper-I", url: "files/2010/MCSCCE_2010/Animal%20H%20&%20V.Sc-I.pdf" },
+							{ name: "Animal Husbandry & Vety. Sc. Paper-II", url: "files/2010/MCSCCE_2010/Animal%20H%20&%20V.Sc-II.pdf" },
+							{ name: "Botany Paper-I", url: "files/2010/MCSCCE_2010/Botany-I.pdf" },
+							{ name: "Botany Paper-II", url: "files/2010/MCSCCE_2010/Botany-II.pdf" },
+							{ name: "Chemistry Paper-I", url: "files/2010/MCSCCE_2010/Chemistry-I.pdf" },
+							{ name: "Chemistry Paper-II", url: "files/2010/MCSCCE_2010/Chemistry-II.pdf" },
+							{ name: "Commerce & Accountancy Paper-I", url: "files/2010/MCSCCE_2010/Comm & Accny-I.pdf" },
+							{ name: "Commerce & Accountancy Paper-II", url: "files/2010/MCSCCE_2010/Comm & Accny-II.pdf" },
+							{ name: "Computer Science Paper-I", url: "files/2010/MCSCCE_2010/Comp Sc-I.pdf" },
+							{ name: "Computer Science Paper-II", url: "files/2010/MCSCCE_2010/Comp Sc-II.pdf" },
+							{ name: "Economics Paper-I", url: "files/2010/MCSCCE_2010/Economics-I.pdf" },
+							{ name: "Economics Paper-II", url: "files/2010/MCSCCE_2010/Economics-II.pdf" },
+							{ name: "Education Paper-I", url: "files/2010/MCSCCE_2010/Education-I.pdf" },
+							{ name: "Education Paper-II", url: "files/2010/MCSCCE_2010/Education-II.pdf" },
+							{ name: "Geography Paper-I", url: "files/2010/MCSCCE_2010/Geography-I.pdf" },
+							{ name: "Geography Paper-II", url: "files/2010/MCSCCE_2010/Geography-II.pdf" },
+							{ name: "Geology Paper-I & II", url: "files/2010/MCSCCE_2010/Geology-I & II.pdf" },
+							{ name: "History Paper-I & II", url: "files/2010/MCSCCE_2010/History-I & II.pdf" },
+							{ name: "Law Paper I & II", url: "files/2010/MCSCCE_2010/Law I & II.pdf" },
+							{ name: "Management Paper-I & II", url: "files/2010/MCSCCE_2010/Management-I & II.pdf" },
+							{ name: "Manipuri Literature Paper-I & II", url: "files/2010/MCSCCE_2010/Manipuri-I & II.pdf" },
+							{ name: "Mathematics Paper-I", url: "files/2010/MCSCCE_2010/Maths-I.pdf" },
+							{ name: "Mathematics Paper-II", url: "files/2010/MCSCCE_2010/Maths-II.pdf" },
+							{ name: "Mechanical Engineering Paper-I & II", url: "files/2010/MCSCCE_2010/Mech Engg I & II.pdf" },
+							{ name: "Medical Science Paper-I & II", url: "files/2010/MCSCCE_2010/Medical Sc-I & II.pdf" },
+							{ name: "Physics Paper-I", url: "files/2010/MCSCCE_2010/Physics-I.pdf" },
+							{ name: "Physics Paper-II", url: "files/2010/MCSCCE_2010/Physics-II.pdf" },
+							{ name: "Political Science & International Relations Paper-I & II", url: "files/2010/MCSCCE_2010//Pol Sc & IR-I & II.pdf" },
+							{ name: "Public Administration Paper-I & II", url: "files/2010/MCSCCE_2010/PA-I & II.pdf" },
+							{ name: "Socilogy Paper-I & II", url: "files/2010/MCSCCE_2010//Sociology I & II.pdf" },
+						],
+						MO_2010: [
+							{ name: "Paper-I", url: "files/2010/MO_2010/Question1Medical2010.pdf" },
+							{ name: "Paper-II", url: "files/2010/MO_2010/Question2Medical2010.pdf" },
+						],						
+						DS_2010: [
+							{ name: "Paper-I", url: "files/2010/MO_2010/Dental Paper I 2010.pdf" },
+							{ name: "Paper-II", url: "files/2010/MO_2010/Dental Paper II 2010.pdf" },
+						],						
+						AE_2013: [
+							{ name: "General Ability Test", url: "files/2013/AE_2013/QgeneralabilityAE.pdf" },
+							{ name: "Civil Engineering Paper-I (MCQ)", url: "files/2013/AE_2013/QcivilengineeringI AE.pdf" },
+							{ name: "Civil Engineering Paper-II (MCQ)", url: "files/2013/AE_2013/QcivilengineeringII AE.pdf" },
+							{ name: "Civil Engineering Paper-I (Conventional)", url: "files/2013/AE_2013/Qcivilengineeringconve I AE.pdf" },
+							{ name: "Civil Engineering Paper-II (Conventional)", url: "files/2013/AE_2013/Qcivilengineeringconve II AE.pdf" },
+						],
+						MCSP_2013: [
+							{ name: "General Studies", url: "files/2013/MCSCCE_2013/MCSCC Examination(prelim) 2013.pdf" },
+						],
+						MCSM_2013: [
+							{ name: "Essay", url: "files/2013/MCSCCE_2013/Essay2013.pdf" },
+							{ name: "General Studies I & II", url: "files/2013/MCSCCE_2013/GSI&II.pdf" },
+							{ name: "Agriculture I & II", url: "files/2013/MCSCCE_2013/Agriculture I &II.pdf" },
+							{ name: "Anthropology I & II", url: "files/2013/MCSCCE_2013/AnthropoloI&II2013.pdf" },
+							{ name: "Botany I & II", url: "files/2013/MCSCCE_2013/BotanyI&II.pdf" },
+							{ name: "Civil Engineering I & II", url: "files/2013/MCSCCE_2013/Civil EnggI&II.pdf" },
+							{ name: "Commerce & Accountancy I & II", url: "files/2013/MCSCCE_2013/Commerce I &II.pdf" },
+							{ name: "Computer Science I & II", url: "files/2013/MCSCCE_2013/Computer Sc I&II.pdf" },
+							{ name: "Economics I & II", url: "files/2013/MCSCCE_2013/EconomicsI&II.pdf" },
+							{ name: "Education I & II", url: "files/2013/MCSCCE_2013/EducationI&II.pdf" },
+							{ name: "Electrical Engineering I & II", url: "files/2013/MCSCCE_2013/Electrical Engg.I&II.pdf" },
+							{ name: "English Literature I & II", url: "files/2013/MCSCCE_2013/English LiteratureI&II.pdf" },
+							{ name: "Geography I & II", url: "files/2013/MCSCCE_2013/GeographyI&II.pdf" },
+							{ name: "Geology I & II", url: "files/2013/MCSCCE_2013/GeologyI&II.pdf" },
+							{ name: "History I & II", url: "files/2013/MCSCCE_2013/HistoryI&II.pdf" },
+							{ name: "Law I & II", url: "files/2013/MCSCCE_2013/LawII&I.pdf" },
+							{ name: "Management I & II", url: "files/2013/MCSCCE_2013/ManagementII&I.pdf" },
+							{ name: "Manipuri Literature I & II", url: "files/2013/MCSCCE_2013/Manipuri I & II.pdf" },
+							{ name: "Mathematics I & II", url: "files/2013/MCSCCE_2013/MathematicsI&II.pdf" },
+							{ name: "Medical Science I & II", url: "files/2013/MCSCCE_2013/Medical ScienceI&II.pdf" },
+							{ name: "Philosophy I & II", url: "files/2013/MCSCCE_2013/PhilosophyI&II.pdf" },
+							{ name: "Physics I & II", url: "files/2013/MCSCCE_2013/PhysicsI&II.pdf" },
+							{ name: "Political Science & International Relations I & II", url: "files/2013/MCSCCE_2013/Pol ScienceI&II.pdf" },
+							{ name: "Psychology I & II", url: "files/2013/MCSCCE_2013/PsychologyI&II.pdf" },
+							{ name: "Public Administration I & II", url: "files/2013/MCSCCE_2013/PAI&II.pdf" },
+							{ name: "Sociology I & II", url: "files/2013/MCSCCE_2013/SociologyI&II.pdf" },
+							{ name: "Zoology I & II", url: "files/2013/MCSCCE_2013/ZoologyI&II.pdf" },
+						],
+						MCSP_2014:	[
+							{ name: "General Studies", url: "files/2014/MCSCCE_2014/mcqmcsccprelim2014.pdf" },
+						],
+						MESP_2014: [
+							{ name: "General Studies", url: "files/2014/MES_III(Open)_2014/mesII IIIques.pdf" },
+						],
+						IT_2014: [
+							{ name: "IT Exam, 2014", url: "files/2014/Taxes_2014/taxaioninspector question.pdf" }
+						],
+						FSO_2014: [
+							{ name: "FSO Exam, 2014", url: "files/2014/FSO_2014/QuestionFSO.pdf" }
+						],
+						AAO_2014: [
+							{ name: "General Studies & Agriculture", url: "files/2014/AAO_2014/MCQforAAO.pdf" }
+						],
+						EOAEO_2014: [
+							{ name: "General Studies", url: "files/2014/EO_2014/MCQEOAEO.pdf" }
+						],
+						MOI_2014: [
+							{ name: "Medical Science", url: "files/2014/MO_I_2014/medical_(I)_2014.pdf" },
+						],						
+						MOII_2014: [
+							{ name: "Medical Science", url: "files/2014/MO_II_2014/Medical paper 2014.pdf" },
+						],	
+						SO_2014: [
+							{ name: "General English", url: "files/2014/SO_2014/Qgeneralenglish SO.pdf" },
+							{ name: "General Studies", url: "files/2014/SO_2014/Qgeneralstudies SO.pdf" },
+							{ name: "Civil Engineering Paper-I", url: "files/2014/SO_2014/QcivilengineeringI SO.pdf" },
+							{ name: "Civil Engineering Paper-II", url: "files/2014/SO_2014/QcivilengineeringII SO.pdf" },
+						],
+						MCSP_2016: [
+							{ name: "General Studies", url: "files/2016/MCSCCE_2016/MCQmcsccprelim2016.pdf" },
+						],
+						MCSM_2016: [
+							{ name: "General English", url: "files/2016/MCSCCE_2016/MCSCC 2016 GE.pdf" },
+							{ name: "Essay", url: "files/2016/MCSCCE_2016/MCSCC 2016 ESSAY.pdf" },
+							{ name: "General Studies Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 GS-I.pdf"},
+							{ name: "General Studies Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 GS-II.pdf"},
+							{ name: "Agricullture Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 AGRI_I.pdf"},
+							{ name: "Agricullture Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 AGRI_II.pdf"},
+							{ name: "Anthropology Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 ANTHRO_I.pdf"},
+							{ name: "Anthropology Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 ANTHRO_II.pdf" },
+							{ name: "Animal Husbandry & Vety Sc. Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 AHVS_I.pdf" },
+							{ name: "Animal Husbandry & Vety Sc. Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 AHVS_II.pdf" },
+							{ name: "Botany Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 BOTANY_I.pdf" },
+							{ name: "Botany Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 BOTANY_II.pdf" },
+							{ name: "Chemistry Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 CHEMISTRY_I.pdf" },
+							{ name: "Chemistry Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 CHEMISTRY_II.pdf" },
+							{ name: "Civil Engineering Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 CIVIL ENGG_I.pdf" },
+							{ name: "Civil Engineering Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 CIVIL ENGG_II.pdf" },
+							{ name: "Commerce & Accountancy Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 COMMERCE_I.pdf" },
+							{ name: "Commerce & Accountancy Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 COMMERCE_II.pdf" },
+							{ name: "Computer Science Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Comp SC_I.pdf" },
+							{ name: "Computer Science Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Comp SC_II.pdf" },
+							{ name: "Economics Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 ECONOMICS-I.pdf" },
+							{ name: "Economics Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 ECONOMICS-II.pdf" },
+							{ name: "Education Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 EDUCATION-I.pdf" },
+							{ name: "Education Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 EDUCATION-II.pdf" },
+							{ name: "Electrical Engineering Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 ELECT ENGG-I.pdf" },
+							{ name: "Electrical Engineering Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 ELECT ENGG-II.pdf" },
+							{ name: "English Literature Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 ENG LIT-I.pdf" },
+							{ name: "English Literature Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 ENG LIT-II.pdf" },
+							{ name: "Geography Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Geography-I.pdf" },
+							{ name: "Geography Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Geography-II.pdf" },
+							{ name: "Geology Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Geology-I.pdf" },
+							{ name: "Geology Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Geology-II.pdf" },
+							{ name: "Hindi Literature Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Hindi Lit-I.pdf" },
+							{ name: "Hindi Literature Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Hindi Lit-II.pdf" },
+							{ name: "History Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 History-I.pdf" },
+							{ name: "History Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 History-II.pdf" },
+							{ name: "Law Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Law-I.pdf" },
+							{ name: "Law Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Law-II.pdf" },
+							{ name: "Management Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Management-I.pdf" },
+							{ name: "Management Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Management-II.pdf" },
+							{ name: "Manipuri Literature Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 MANIPURI LIT-I.pdf" },
+							{ name: "Manipuri Literature Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 MANIPURI LIT-II.pdf" },
+							{ name: "Mathematics Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Mathematics-I.pdf" },
+							{ name: "Mathematics Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Mathematics-II.pdf" },
+							{ name: "Mechanical Engineering Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 MECH ENGG-I.pdf" },
+							{ name: "Mechanical Engineering Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 MECH ENGG-II.pdf" },
+							{ name: "Medical Science Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 MEDICAL SC-I.pdf" },
+							{ name: "Medical Science Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 MEDICAL SC-II.pdf" },
+							{ name: "Philosophy Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Philosophy-I.pdf" },
+							{ name: "Philosophy Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Philosophy-II.pdf" },
+							{ name: "Physics Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Physics-I.pdf" },
+							{ name: "Physics Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Physics-II.pdf" },
+							{ name: "Psychology Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Psychology-I.pdf" },
+							{ name: "Psychology Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Psychology-II.pdf" },
+							{ name: "Political Science & International Relations Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 POL SC-I.pdf" },
+							{ name: "Political Science & International Relations Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 POL SC-II.pdf" },
+							{ name: "Public Administration Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 PUBLIC ADMN-I.pdf" },
+							{ name: "Public Administration Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 PUBLIC ADMN-II.pdf" },
+							{ name: "Sociology Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Sociology-I.pdf" },
+							{ name: "Sociology Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Sociology-II.pdf" },
+							{ name: "Zoology Paper-I", url: "files/2016/MCSCCE_2016/MCSCC 2016 Zoology-I.pdf" },
+							{ name: "Zoology Paper-II", url: "files/2016/MCSCCE_2016/MCSCC 2016 Zoology-II.pdf" },
+						],
+						OAP_2016: [
+							{ name: "General Studies", url: "files/2016/MPSC_2016/MPSC_OA_Prelim_ 2016" },
+						],
+						OAM_2016: [
+							{ name: "General English", url: "files/2016/MPSC_2016/GEOA(Main).pdf" },
+						],
+						OSD_2017: [
+							{ name: "English", url: "files/2017/OSD_Law_MPSC_2017/MPSC OSD LAW ENG 2017.pdf" },
+							{ name: "Law", url: "files/2017/OSD_Law_MPSC_2017/MPSC OSD LAW LAW.pdf" },
+						],
+						Arch_2017: [
+							{ name: "Questin Paper", url: "files/2017/Asst_Architect_2017/ASST ARCHITECT 2017.pdf" },
+						],
+						DIOAPO_2017: [
+							{ name: "English Paper", url: "files/2017/DIO_APO_2017/DIO APO 2017 ENG.pdf" },
+							{ name: "Journalishm Paper", url: "files/2017/DIO_APO_2017/DIO APO 2017 JOURNALISM.pdf" },
+						],
+						PRO_2017: [
+							{ name: "English Paper", url: "files/2017/PRO_2017/PRO 2017 ENGLISH.pdf" },
+							{ name: "Journalishm Paper", url: "files/2017/PRO_2017/PRO 2017 JOURMALISM.pdf" },
+						],
+						ADES_2017: [
+							{ name: "Question Paper", url: "files/2017/AD_ECO_Stats_2017/ASST DIR ECO & STATS.pdf" },
+						],
+						MO_2017: [
+							{ name: "Medical Science", url: "files/2017/MO_2017/MO 2017.pdf" },
+						],
+						DS_2017: [
+							{ name: "Question Paper", url: "files/2017/DS_2017/DS 2017.pdf" },
+						],
+						AGA_2018: [
+							{ name: "English Paper", url: "files/2018/AGAAPP_2018/APP_ENG_PAPER_2018.pdf" },
+							{ name: "Law Paper", url: "files/2018/AGAAPP_2018/APP_LAW_Paper_2018.pdf" },
+						],
+						MO_2018: [
+							{ name: "Medical Science", url: "files/2018/MO_2018/MO 2018.pdf" },
+						],
+						LDE_2022: [
+							{ name: "Manipuri Paper", url: "files/2022/LDE_2022/QP/Manipuri.pdf" },
+							{ name: "Hindi Paper", url: "files/2022/LDE_2022/QP/Hindi.pdf" },
+							{ name: "IAS/MCS/SDC Paper-I", url: "files/2022/LDE_2022/QP/IAS_IPS_IFS_SI_P_I.pdf" },
+							{ name: "IAS/MCS/SDC Paper-II", url: "files/2022/LDE_2022/QP/IAS_P_II.pdf" },
+							{ name: "IAS/MCS/SDC Paper-III", url: "files/2022/LDE_2022/QP/IAS_P_III.pdf" },
+							{ name: "IAS/MCS/SDC Paper-IV", url: "files/2022/LDE_2022/QP/IAS_P_IV.pdf" },
+							{ name: "IAS/MCS/SDC Paper-V", url: "files/2022/LDE_2022/QP/Paper_V_IAS_Paper_III_IPS_IFS_COOP_SI.pdf" },
+							{ name: "IAS/MCS/SDC Paper-VI", url: "files/2022/LDE_2022/QP/IAS_Paper_VI_IPS_IFS_Paper_IV.pdf" },
+							{ name: "IPS/ MPS Paper-I", url: "files/2022/LDE_2022/QP/IAS_IPS_IFS_SI_P_I.pdf" },
+							{ name: "IPS/ MPS Paper-II", url: "files/2022/LDE_2022/QP/IPS_MPS_SI_P_II.pdf" },
+							{ name: "IPS/ MPS Paper-II", url: "files/2022/LDE_2022/QP/IPS_MPS_SI_P_II.pdf" },
+							{ name: "IPS/ MPS Paper-III", url: "files/2022/LDE_2022/QP/Paper_V_IAS_Paper_III_IPS_IFS_COOP_SI.pdf" },
+							{ name: "IPS/ MPS Paper-IV", url: "files/2022/LDE_2022/QP/IAS_Paper_VI_IPS_IFS_Paper_IV.pdf" },
+							{ name: "IFS/MForS Paper-I", url: "files/2022/LDE_2022/QP/IAS_IPS_IFS_SI_P_I.pdf" },
+							{ name: "IFS/MForS Paper-II", url: "files/2022/LDE_2022/QP/IFS_P_II.pdf" },
+							{ name: "IFS/MForS Paper-III", url: "files/2022/LDE_2022/QP/Paper_V_IAS_Paper_III_IPS_IFS_COOP_SI.pdf" },
+							{ name: "IFS/MForS Paper-IV", url: "files/2022/LDE_2022/QP/IAS_Paper_VI_IPS_IFS_Paper_IV.pdf" },
+							{ name: "SI/ ASI of Police Paper-I", url: "files/2022/LDE_2022/QP/IAS_IPS_IFS_SI_P_I.pdf" },
+							{ name: "SI/ ASI of Police Paper-II", url: "files/2022/LDE_2022/QP/IPS_MPS_SI_P_II.pdf" },
+							{ name: "SI/ ASI of Police Paper-III", url: "files/2022/LDE_2022/QP/Paper_V_IAS_Paper_III_IPS_IFS_COOP_SI.pdf" },
+							{ name: "SI/ ASI of Police Paper-IV", url: "files/2022/LDE_2022/QP/IAS_Paper_VI_IPS_IFS_Paper_IV.pdf" },
+							{ name: "SI/ ASI of Excise Paper-I", url: "files/2022/LDE_2022/QP/Excise-I.pdf" },
+							{ name: "SI/ ASI of Excise Paper-II", url: "files/2022/LDE_2022/QP/Excise_II.pdf" },
+							{ name: "MFS Paper-I", url: "files/2022/LDE_2022/QP/MFS_I.pdf" },
+							{ name: "MFS Paper-II", url: "files/2022/LDE_2022/QP/MFS_II.pdf" },
+							{ name: "MFS Paper-III", url: "files/2022/LDE_2022/QP/MFS_III.pdf" },
+							{ name: "MFS Paper-IV", url: "files/2022/LDE_2022/QP/MFS_IV.pdf" },
+							{ name: "MFS Paper-V", url: "files/2022/LDE_2022/QP/MFS_V.pdf" },
+							{ name: "Pre-Promotion Test for Jemadar to the rank of Subedar", url: "files/2022/LDE_2022/QP/PPT_Jemadar.pdf" },
+							
+						],
+							
+						
+					};
+
+					function renderTable(papers = [], useTwoColumns = false, shouldShow = true) {
+  const wrapper = document.getElementById("tableWrapper");
+  const container = document.getElementById("tableContainer");
+
+  if (!shouldShow) {
+    wrapper.style.display = "none";
+    return;
+  }
+
+  let output = `
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            ${useTwoColumns ? '<th>Paper Name</th><th>Paper Name</th>' : '<th>Paper Name</th>'}
+          </tr>
+        </thead>
+        <tbody>
+  `;
+
+  if (papers.length > 0) {
+    if (useTwoColumns) {
+      for (let i = 0; i < papers.length; i += 2) {
+        const col1 = papers[i];
+        const col2 = papers[i + 1];
+        output += `
+          <tr>
+            <td><a href="${col1.url}" target="_blank">${col1.name} <i class="fa fa-file-pdf-o" style="color:red;"></i></a></td>
+            <td>${col2 ? `<a href="${col2.url}" target="_blank">${col2.name} <i class="fa fa-file-pdf-o" style="color:red;"></i></a>` : ''}</td>
+          </tr>
+        `;
+      }
+    } else {
+      papers.forEach(paper => {
+        output += `
+          <tr>
+            <td><a href="${paper.url}" target="_blank">${paper.name} <i class="fa fa-file-pdf-o" style="color:red;"></i></a></td>
+          </tr>
+        `;
+      });
+    }
+  } else {
+    output += `
+      <!--tr>
+        <td colspan="${useTwoColumns ? 2 : 1}" class="no-data">No question papers available</td>
+      </tr-->
+    `;
+  }
+
+  output += `
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  container.innerHTML = output;
+  wrapper.style.display = "block"; // Show only after exam selection
+}
+
+
+
+				  
+
+				  document.getElementById("examSelect").addEventListener("change", function () {
+					const selected = this.value;
+					const papers = questionPapers[selected] || [];
+					const useTwoCols = papers.length > 5;
+					renderTable(papers, useTwoCols);
+				  });
+
+				  // ? On page load: show empty table with one column
+				  window.addEventListener("DOMContentLoaded", function () {
+					renderTable([], false);
+				  });
+				</script>
+
+
+
+		</div>
+		<!-- Submenu below -->
+		<div class="submenu-strip">
+			<div class="submenu-container">
+				<a href="https://empsconline.gov.in" class="submenu-link link2">Apply Online</a>
+				<a href="https://empsconline.gov.in/downloadadmitcardv2.aspx" class="submenu-link link3">Admit Cards</a>
+				<a href="ans-key.html" class="submenu-link link4">Answer Key </a>
+				<a href="Exam_concluded.html" class="submenu-link link1">Concluded Examinations</a>
+				<a href="Written-results.html" class="submenu-link link5">Written Results</a>
+				<a href="interview.html" class="submenu-link link6">Interview</a>
+				<a href="final-results.html" class="submenu-link link7">Final Results</a>
+				<a href="Question.html" class="submenu-link link8">Previous Year Question Papers</a>
+			</div>
+		</div>
+		<!-- Footer -->
+		<div id="footer-placeholder"></div>
+			<script>
+			  fetch('footer.html')
+				.then(response => response.text())
+				.then(data => {
+				  document.getElementById('footer-placeholder').innerHTML = data;
+				})
+				.catch(error => console.error('Footer load error:', error));
+			</script>
+	</body>
+</html>

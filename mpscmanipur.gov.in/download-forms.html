@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MPSC - Manipur Public Service Commission</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="MPSC, Manipur, Imphal, Manipur Civil Services Combined Competitive, Civil Services" />
+		<meta name="_globalsign-domain-verification" content="ArFx_UKkTcgDo_uxdQcISY7Gmi0l9g5ZKaZ4CfmDn9" />
+		<link rel="shortcut icon" href="favico.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="includes/css/common.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  
+		<style>/* General Layout */
+			  body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+			  }
+
+			  .word-wrap {
+				overflow-wrap: break-word;
+				white-space: normal;
+			  }
+
+			  /* Table Styles */
+			  table thead th {
+				font-weight: bold;
+				background-color: #337ab7;
+				color: white;
+			  }
+
+			  /* Navbar Styles */
+			  .navbar-nav > li > a {
+				font-size: 18px;
+				font-weight: 500;
+			  }
+
+			  .navbar-nav .dropdown-menu > li > a {
+				font-size: 16px;
+			  }
+
+			  /* Responsive Header Adjustments */
+			  @media (max-width: 767px) {
+				.header-contact {
+				  text-align: center;
+				  margin-top: 15px;
+				}
+
+				.header-contact a {
+				  display: block;
+				  margin-top: 5px;
+				}
+			  }
+
+			 /* Footer */
+			  .footer {
+				background-color: #ffffff;
+				padding: 15px 0;
+				border-top: 1px solid #ccc;
+				margin-top: 30px;
+			  }
+
+			  .no-data {
+				text-align: center;
+				font-weight: bold;
+				color: red;
+				margin-top: 20px;
+			  }
+			  
+			  #examSelect {
+				  width: 100%;       /* Stretch to fill container width */
+				  max-width: 900px;  /* Optional: limit max width */
+				  font-size: 18px;   /* Slightly bigger font */
+				  padding: 8px 12px; /* Add some padding for height */
+				  box-sizing: border-box; /* Include padding in width */
+				}
+
+				#groupSelect {
+				  width: 100%;       /* Stretch to fill container width */
+				  max-width: 900px;  /* Optional: limit max width */
+				  font-size: 18px;   /* Slightly bigger font */
+				  padding: 8px 12px; /* Add some padding for height */
+				  box-sizing: border-box; /* Include padding in width */
+				}
+				.container {
+				margin-top: 80px;
+				max-width: 900px;
+				}
+		</style>
+	</head>
+		<body>
+		<div class="container-fluid">
+			<!-- Header -->
+			<div id="header-placeholder"></div>
+				<script>
+					fetch('header.html')
+						.then(response => response.text())
+						.then(data => {
+						document.getElementById('header-placeholder').innerHTML = data;
+						})
+						.catch(error => console.error('Header load error:', error));
+				</script>			
+			<!-- Download Forms Section -->
+			<div class="container">
+ 				<h2 class="text-center">Download Forms</h2><br/>
+				<!-- Dropdown for form category -->
+				<div class="form-group">
+					<label for="formCategory"><strong>Select Form Category:</strong></label>
+					<select id="formCategory" class="form-control" onchange="filterForms()">
+					<option value="">-- Please select --</option>
+					<option value="direct">Direct Recruitment</option>
+					<option value="promotion">Promotion</option>
+					<option value="RR">Recruitment Rules</option>
+					</select>
+				</div>
+
+				<!-- Table to show forms -->
+				<div id="formsTableContainer" style="margin-top: 20px;">
+					<table class="table table-bordered table-striped" id="formsTable" style="display: none;">
+					<thead>
+						<tr>
+						<th>Form Name</th>
+						<th>Description</th>
+						<th>Download</th>
+						</tr>
+					</thead>
+					<tbody id="formsTableBody">
+						<!-- Rows inserted dynamically -->
+					</tbody>
+					</table>
+				</div>
+			</div>
+
+			<script>
+				const formData = {
+					direct: [
+					{
+						name: "MPSC FORM I",
+						description: "Direct Recruitment Requisition Form",
+						link: "forms/mpsc form I.pdf"
+					},
+					{
+						name: "Attestation Form",
+						description: "Attestation Form",
+						link: "files/Attestationform15MPSCform15.pdf"
+					},
+					{
+						name: "Proforma-I",
+						description: "Experience Certificate",
+						link: "files/Proforma-I_(Experience_Certificate).pdf"
+					}
+					],
+					promotion: [
+					{
+						name: "MPSC FORM 6",
+						description: "Proforma for referring promotion proposal",
+						link: "forms/mpsc form 6.pdf"
+					},
+					{
+						name: "MPSC FORM 11",
+						description: "Proforma for referring confirmation proposal",
+						link: "forms/mpsc form 11.pdf"
+					}
+					],
+					RR: [
+						{
+							name: "MPSC Form 9",
+							description: "Framing of Recruitment Rules form (to be submitted by Dept of Personnel)",
+							link: "forms/mpsc form 9.pdf"
+						},
+						{
+							name: "MPSC Form 10",
+							description: "Amendment of Recruitment Rules form (to be submitted by Dept of Personnel)",
+							link: "forms/mpsc form 10.pdf"
+						},		
+						{
+							name: "MPSC Form 8",
+							description: "Recruitment Rules format",
+							link: "forms/mpsc form 8.pdf"
+						},		
+						{
+							name: "Check List",
+							description: "Check list for referring RR porposals to MPSC",
+							link: "forms/Check List.pdf"
+						},		
+						{
+							name: "Check List Proforma",
+							description: "Check List Proforma for sending proposal for framing and amendment of Recruitment Rules",
+							link: "forms/Check List Proforma for sending proposal for framing and amendment.pdf"
+						},		
+						{
+							name: "Detail of Court Case",
+							description: "Detail of Court Case to be furnished along with the RR proposals to MPSC",
+							link: "forms/Detail of Court Case.pdf"
+						}
+						],
+				};
+
+				function filterForms() {
+					const selected = document.getElementById("formCategory").value;
+					const tbody = document.getElementById("formsTableBody");
+					const table = document.getElementById("formsTable");
+
+					tbody.innerHTML = "";
+
+					if (formData[selected]) {
+					formData[selected].forEach(form => {
+						const row = `<tr>
+							<td>${form.name}</td>
+							<td>${form.description}</td>
+							<td><a href="${form.link}" target="_blank" class="btn btn-primary btn-sm">Download</a></td>
+						</tr>`;
+						tbody.innerHTML += row;
+					});
+					table.style.display = "table";
+					} else {
+					table.style.display = "none";
+					}
+				}
+			</script>
+		</div>
+		<!-- Footer -->
+		<div id="footer-placeholder"></div>
+			<script>
+			  fetch('footer.html')
+				.then(response => response.text())
+				.then(data => {
+				  document.getElementById('footer-placeholder').innerHTML = data;
+				})
+				.catch(error => console.error('Footer load error:', error));
+			</script>
+	</body>
+</html>

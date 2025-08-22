@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MPSC - Manipur Public Service Commission</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="MPSC, Manipur, Imphal, Manipur Civil Services Combined Competitive, Civil Services" />
+		<meta name="_globalsign-domain-verification" content="ArFx_UKkTcgDo_uxdQcISY7Gmi0l9g5ZKaZ4CfmDn9" />
+		<link rel="shortcut icon" href="favico.ico" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="includes/css/common.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<style>/* ====== BASE ====== */
+			body {
+			  font-family: Arial, Helvetica, sans-serif;
+			  font-size: 16px;
+			}
+
+			.word-wrap {
+			  word-wrap: break-word;
+			  white-space: normal;
+			}
+
+			/* ====== HEADER LOGO ====== */
+			.logo img {
+			  max-width: 100%;
+			  height: auto;
+			}
+
+			/* ====== NAVBAR ====== */
+			.navbar-nav > li > a {
+			  font-size: 18px;
+			  font-weight: 500;
+			}
+
+			.navbar-nav .dropdown-menu > li > a {
+			  font-size: 16px;
+			}
+
+			/* ====== TABLE STYLING ====== */
+			table#myTable th:first-child,
+			table#myTable td:first-child {
+			  text-align: center;
+			}
+
+			table#myTable th:nth-child(3),
+			table#myTable td:nth-child(3),
+			table#myTable th:nth-child(4),
+			table#myTable td:nth-child(4) {
+			  text-align: center;
+			}
+
+			tbody {
+			  counter-reset: rowNumber;
+			}
+
+			tbody tr {
+			  counter-increment: rowNumber;
+			}
+
+			tbody tr td:first-child::before {
+			  content: counter(rowNumber);
+			  min-width: 1em;
+			  margin-right: 0.5em;
+			}
+
+			/* ====== FOOTER ====== */
+			.footer {
+			  background-color: #ffffff;
+			  padding: 15px 0;
+			  border-top: 1px solid #ccc;
+			  margin-top: 30px;
+			}
+
+			/* ====== RESPONSIVE ====== */
+			@media (max-width: 767px) {
+			  .header-logo, .header-contact {
+				text-align: center;
+				justify-content: center !important;
+				flex-direction: column;
+			  }
+
+			  .header-contact {
+				margin-top: 15px;
+			  }
+
+			  .header-contact a {
+				display: block;
+				margin-top: 5px;
+			  }
+
+			  .commission-box img {
+				width: 100px;
+				height: 120px;
+				object-fit: contain;
+			  }
+			}
+			/*====== syllbus doownload link =======*/
+			  #syllabusDownloadLink a#downloadLink {
+				color: white !important;
+				}
+
+			#syllabusDownloadLink a#downloadLink .fa {
+			color: white !important;
+			}
+
+		/* ====== SUBMENU STRIP ====== */
+		.submenu-strip {
+		  padding: 10px 0;
+		  width: 100%;
+		  border: none;
+		  margin: 0;
+		  background: none;
+		}
+
+		.submenu-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  gap: 10px;
+		  padding: 10px;
+		}
+
+		.submenu-link {
+		  color: #fff;
+		  text-decoration: none;
+		  padding: 10px 15px;
+		  font-size: 15px;
+		  font-weight: 500;
+		  text-align: center;
+		  flex-grow: 1;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  min-width: 120px;
+		  white-space: normal;
+		  word-wrap: break-word;
+		}
+
+		.submenu-link:hover,
+		.submenu-link.active-link {
+		  color: black !important;
+		  font-weight: bold;
+		  opacity: 0.85;
+		  text-decoration: none;
+		}
+
+
+		/* Submenu background colors */
+		.link1 { background-color: #4CAF50; }   /* Green */
+		.link2 { background-color: #2196F3; }   /* Blue */
+		.link3 { background-color: #FF9800; }   /* Orange */
+		.link4 { background-color: #9C27B0; }   /* Purple */
+		.link5 { background-color: #F44336; }   /* Red */
+		.link6 { background-color: #3F51B5; }   /* Indigo */
+		.link7 { background-color: #009688; }   /* Teal */
+		.link8 { background-color: #795548; }   /* Brown */
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<div id="header-placeholder"></div>
+		<script>
+  			fetch('header.html')
+    		.then(response => response.text())
+    		.then(data => {
+    				document.getElementById('header-placeholder').innerHTML = data;
+    		})
+    		.catch(error => console.error('Header load error:', error));
+		</script>			
+		<!-- LDE 2020 -->
+		<div class="container">
+			<div class="text-center">
+				<h2 style="color: #B22222; font-weight: bold;">Limited Departmental Examination, 2020</h2></br>
+			</div>
+			<input class="form-control" id="myInput" type="text" placeholder="Search...." style="margin-bottom: 10px; max-width: 300px;">
+			<table class="table table-bordered table-striped" id="myTable" style="width:100%">
+				<thead style="background-color: #337ab7; color: white;">
+					<tr>
+						<th width="7%" >Sl. No.</th>
+						<th width="50%" >Particular</th>
+						<th width="12%">Download document</th>
+						<th width="12%">Date of upload</th>
+					</tr>
+				</thead>
+				<tbody  style="font-size:18px;">
+					<tr>
+						<td></td>
+						<td>Exam Notification</td>
+						<td><a href="files/2021/LDE2020/LDE_2020.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td> 
+						<td>08-07-2021</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Extension of last date </td>
+						<td><a href="files/2021/LDE2020/Extn_Last_Date_LDE_2020_&amp;_LSESGI_2021.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>29-07-2021</td>
+					</tr> 
+					<tr>
+						<td></td>
+						<td>Result of Pre-Promotion Test (Outdoor Portion) for Promotion from Jemadar to Subedar </td>
+						<td><a href="files/2021/LDE2020/Jemadars_Outdoor.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>29-07-2021</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Extension of last date </td>
+						<td><a href="files/2021/LDE2020/Last_date_extension-II.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>10-08-2021</td>
+					</tr>    
+					<tr>
+						<td></td>
+						<td>Exam Date Notificaiton </td>
+						<td><a href="files/2021/LDE2020/Exam_Schedule_LDE_2020_&amp;_LSESGI_2021.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>11-08-2021</td>
+					</tr>   
+					<tr>
+						<td></td>
+						<td>Exam Time Table </td>
+						<td><a href="files/2021/LDE2020/LDE_2020_Time_table.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>11-08-2021</td>
+					</tr>   
+					<tr>
+						<td></td>
+						<td>Viva Voce Schedule </td>
+						<td><a href="files/2021/LDE2020/viva_schedule.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>21-08-2021</td>
+					</tr>  
+					<tr>
+						<td></td>
+						<td>Viva Voce Schedule for 24 candidates who could not appear on 26<sup>th</sup> & 31<sup>st</sup>, August, 2021</td>
+						<td><a href="files/2021/LDE2020/viva_schedule_24.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>03-09-2021</td>
+					</tr> 
+					<tr>
+						<td></td>
+						<td>Results</td>
+						<td><a href="files/2021/LDE2020/LDE_2020_Result.pdf"><img src="images/download.png" width="116" height="40" alt="" /></a></td>
+						<td>27-10-2021</td>
+					</tr> 
+				</tbody>
+			</table>
+			<script>
+				$(document).ready(function(){
+				$("#myInput").on("keyup", function() {
+					var value = $(this).val().toLowerCase();
+					$("#myTable tbody tr").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+					});
+				});
+				});
+			</script>
+				<div id="syllabus">
+					<h3><strong>Syllabus Downloads</strong></h3>
+					<label for="syllabusSelect">Select Post:</label>
+					<select class="form-control" id="syllabusSelect">
+						<option value="" disabled selected>-- Choose a post --</option>
+						<option value="files/2021/LDE2020/Syllabus_for_IAS_MCS_JR_MCS.pdf">For IAS/MCS/Jr. MCS/ Election Officer</option>
+						<option value="files/2021/LDE2020/Syllabus_for_IPS_MPS_SI_ASI.pdf">For IPS/ MPS/ SI/ ASI of Police</option>
+						<option value="files/2021/LDE2020/Syllabus_for_IFS_MForS.pdf">For IFS/ MForS</option>
+						<option value="files/2021/LDE2020/Syllabus_for_MFS.pdf">For Manipur Finance Service (MFS)</option>
+						<option value="files/2021/LDE2020/Syllabus_for_DR_SO">For Direct Recruit Section Officer of MSS</option>
+						<option value="files/2021/LDE2020/Syllabus_for_coop.pdf">For Cooperative Officers</option>
+						<option value="files/2021/LDE2020/Syllabus_for_taxes.pdf">For Inspector of Taxes</option>
+						<option value="files/2021/LDE2020/Syllabus_for_Excise.pdf">For Excise</option>
+						<option value="files/2021/LDE2020/Syllabus_for_Jemadars.pdf">For Jemadars of Manipur Rifles Bn.</option>
+					</select>
+				  	<div id="syllabusDownloadLink" style="margin-top: 20px; display: none;">
+						<a id="downloadLink" class="btn btn-primary" href="#" target="_blank" style="color: white;">
+				  			<i class="fa fa-download"></i> Download Syllabus
+						</a>
+    				</div>
+				</div>
+				<script>
+				  $(document).ready(function() {
+					$('#syllabusSelect').on('change', function() {
+					  const selectedUrl = $(this).val();
+					  if (selectedUrl) {
+						$('#downloadLink').attr('href', selectedUrl);
+						$('#syllabusDownloadLink').show();
+					  } else {
+						$('#syllabusDownloadLink').hide();
+					  }
+					});
+				  });
+				</script>	
+		</div>
+  		<!-- Footer -->
+			<div id="footer-placeholder"></div>
+			<script>
+			  fetch('footer.html')
+				.then(response => response.text())
+				.then(data => {
+				  document.getElementById('footer-placeholder').innerHTML = data;
+				})
+				.catch(error => console.error('Footer load error:', error));
+			</script>
+	</body>
+</html>
